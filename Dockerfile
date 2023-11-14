@@ -17,7 +17,7 @@ COPY main.go ./
 RUN CGO_ENABLED=0 go build -o /hello_go_http
 
 # Start a new stage from a smaller image for runtime
-FROM gcr.io/distroless/base-debian10
+FROM golang:1.18-bullseye
 
 # Copy the compiled binary from the first stage
 COPY --from=builder /hello_go_http /hello_go_http
